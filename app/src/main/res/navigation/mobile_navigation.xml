@@ -8,18 +8,13 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.latinos.mobiletest.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/title_heroes"
+        tools:layout="@layout/fragment_heroes" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.latinos.mobiletest.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.latinos.mobiletest.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>
