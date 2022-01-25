@@ -8,3 +8,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MobileTest"
 include ':app'
+include ':data'
+include ':domain'
+include ':services'
