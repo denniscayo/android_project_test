@@ -4,7 +4,7 @@ import java.math.BigInteger
 import java.security.MessageDigest
 import java.sql.Timestamp
 
-class CharatersServiceData {
+class CharactersServiceData {
     //TODO: refactor a un interceptor¿?
     companion object {
         val timeStamp = Timestamp(System.currentTimeMillis()).time.toString()

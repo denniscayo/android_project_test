@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.latinos.mobiletest.ui.home.HomeFragment"
+        android:name="com.latinos.mobiletest.features.character.paged.CharacterPagedFragment"
         android:label="@string/title_heroes"
         tools:layout="@layout/fragment_heroes" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.latinos.mobiletest.ui.dashboard.DashboardFragment"
+        android:name="com.latinos.mobiletest.features.dashboard.DashboardFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 

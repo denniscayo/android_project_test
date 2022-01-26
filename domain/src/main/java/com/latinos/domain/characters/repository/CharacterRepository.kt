@@ -1,7 +1,7 @@
-package com.latinos.domain.charaters.repository
+package com.latinos.domain.characters.repository
 
 import androidx.paging.PagingData
-import com.latinos.domain.charaters.model.CharacterModel
+import com.latinos.domain.characters.model.CharacterModel
 import kotlinx.coroutines.flow.Flow
 
 interface CharacterRepository {

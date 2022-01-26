@@ -1,9 +1,9 @@
 package com.latinos.services.remote.charaters.dto
 
 data class DataDTO(
-    val count: String,
-    val limit: String,
-    val offset: String,
+    val count: Int,
+    val limit: Int,
+    val offset: Int,
     val results: List<ResultDTO>,
-    val total: String,
+    val total: Int,
 )
