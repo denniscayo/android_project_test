@@ -1,13 +1,12 @@
-package com.latinos.services.remote.heroes
+package com.latinos.services.remote.charaters
 
 import java.math.BigInteger
 import java.security.MessageDigest
 import java.sql.Timestamp
 
-class MarvelServiceData {
+class CharatersServiceData {
     //TODO: refactor a un interceptor¿?
     companion object {
-        const val BASE_URL = "https://gateway.marvel.com/"
         val timeStamp = Timestamp(System.currentTimeMillis()).time.toString()
         const val API_KEY = "7067eef13865fb719522b26487b3d68e"
         const val PRIVATE_KEY = "6bad476e124cd76e5e96f50c684f328862825d60"

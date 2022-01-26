@@ -1,6 +1,6 @@
-package com.latinos.services.remote.heroes.dto
+package com.latinos.services.remote.charaters.dto
 
-data class StoriesDTO(
+data class ComicsDTO(
     val available: String,
     val collectionURI: String,
     val items: List<ItemDTO>,

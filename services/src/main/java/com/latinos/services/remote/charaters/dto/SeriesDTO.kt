@@ -1,4 +1,4 @@
-package com.latinos.services.remote.heroes.dto
+package com.latinos.services.remote.charaters.dto
 
 data class SeriesDTO(
     val available: String,
