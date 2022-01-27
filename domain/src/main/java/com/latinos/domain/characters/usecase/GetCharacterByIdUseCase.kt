@@ -2,25 +2,18 @@ package com.latinos.domain.characters.usecase
 
 import com.latinos.domain.characters.model.CharacterDetailModel
 import com.latinos.domain.characters.repository.CharacterRepository
-import com.latinos.domain.utils.repository.Result
-import com.latinos.domain.utils.usecacse.FlowUseCase
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.mapNotNull
+import com.latinos.domain.utils.dispatchers.DispatcherProvider
+import com.latinos.domain.utils.usecase.FlowUseCase
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetCharacterByIdUseCase @Inject constructor(
     private val characterRepository: CharacterRepository,
-) : FlowUseCase<GetCharacterByIdUseCase.Params, Flow<@JvmSuppressWildcards Result<CharacterDetailModel?>>> {
+    dispatcherProvider: DispatcherProvider,
+) : FlowUseCase<String, CharacterDetailModel>(dispatcherProvider) {
 
-    data class Params(val characterBy: String)
+    override fun prepareFlow(input: String) =
+        flow { emit(characterRepository.getCharacterById(input)) }
 
-    override fun execute(params: Params): Flow<Result<CharacterDetailModel?>> {
-        return characterRepository.getCharacterById(params.characterBy).mapNotNull { response ->
 
-            return@mapNotNull when (response) {
-                is Result.Success -> Result.Success(response.data)
-                is Result.Error -> Result.Error(response.error, response.data)
-            }
-        }
-    }
 }
