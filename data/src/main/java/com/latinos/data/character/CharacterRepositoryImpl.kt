@@ -5,6 +5,7 @@ import androidx.paging.PagingConfig
 import com.latinos.common.utils.either.Either
 import com.latinos.common.utils.either.map
 import com.latinos.data.character.mapper.toCharacterDetailModel
+import com.latinos.data.character.mapper.toCharacterEntity
 import com.latinos.data.character.mapper.toCharacterErrorModel
 import com.latinos.data.character.paging.CharacterPagingSource
 import com.latinos.data.utils.ErrorHandler
@@ -47,13 +48,21 @@ class CharacterRepositoryImpl @Inject constructor(
 //        }.asFlow().flowOn(Dispatchers.IO)
 
     override fun getCharacterByIdNew(characterId: String): Either<CharacterDetailModel, CharacterErrorModel> {
-        return characterRemoteDataSource
-            .getCharacterById(characterId)
-            .map(
-                onSuccess = { characterDTO ->
-                    characterDTO.toCharacterDetailModel()
-                },
-                onFailure = { it.toCharacterErrorModel() }
-            )
+        val localData = characterDao.getCharacterById(characterId.toInt())
+
+        return if (localData == null) {
+            characterRemoteDataSource
+                .getCharacterById(characterId)
+                .map(
+                    onSuccess = { characterDTO ->
+                        characterDao.insertCharacterEntity(characterDTO.toCharacterEntity())
+                        characterDTO.toCharacterDetailModel()
+
+                    },
+                    onFailure = { it.toCharacterErrorModel() }
+                )
+        } else {
+            Either.Success(localData.toCharacterDetailModel())
+        }
     }
 }

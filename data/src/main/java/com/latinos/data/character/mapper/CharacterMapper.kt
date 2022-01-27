@@ -26,4 +26,9 @@ fun CharacterDTO.toCharacterDetailModel() = CharacterDetailModel(data.results[0]
     data.results[0].description,
     data.results[0].thumbnail.toImage())
 
+fun CharacterDTO.toCharacterEntity() = CharacterEntity(data.results[0].id.toInt(),
+    data.results[0].name,
+    data.results[0].description,
+    data.results[0].thumbnail.toImage())
+
 fun CharacterErrorDTO.toCharacterErrorModel() = CharacterErrorModel.Generic
