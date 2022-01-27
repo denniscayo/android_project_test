@@ -12,6 +12,8 @@ import com.latinos.domain.characters.model.CharacterDetailModel
 import com.latinos.domain.characters.repository.CharacterRepository
 import com.latinos.services.remote.charaters.CharactersService
 import com.latinos.services.remote.charaters.dto.CharacterDTO
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -42,6 +44,5 @@ class CharacterRepositoryImpl @Inject constructor(
 
             override fun shouldFetch(data: CharacterDetailModel?) = (data == null)
 
-        }
-
+        }.asFlow().flowOn(Dispatchers.IO)
 }

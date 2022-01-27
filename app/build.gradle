@@ -73,5 +73,6 @@ dependencies {
 
     implementation project(":data")
     implementation project(":domain")
+    implementation project(":database")
     implementation project(":services")
 }

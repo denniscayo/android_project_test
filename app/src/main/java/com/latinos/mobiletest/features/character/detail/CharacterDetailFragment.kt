@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.latinos.data.utils.collectInLifeCycle
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentCharacterDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,9 +34,48 @@ class CharacterDetailFragment : Fragment() {
             false
         )
 
-        //binding.viewModel = viewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val characterId = CharacterDetailFragmentArgs.fromBundle(requireArguments()).characterId
+        viewModel.getCharacterByIdUseCase(characterId)
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.state.collectInLifeCycle(this) { renderState(it) }
+        viewModel.events.collectInLifeCycle(this) { renderEvents(it) }
+    }
+
+    private fun renderState(state: CharacterDetailViewModel.State) =
+        when (state) {
+            is CharacterDetailViewModel.State.Loading -> if (state.showLoading) showLoading() else hideLoading()
+            else -> {}
+        }
+
+    private fun renderEvents(event: CharacterDetailViewModel.Event) {
+        when (event) {
+            is CharacterDetailViewModel.Event.ErrorCharacter -> {
+                Toast.makeText(requireContext(), event.text, Toast.LENGTH_SHORT).show()
+
+            }
+            CharacterDetailViewModel.Event.NavigateToUnregisteredLogin -> {
+
+            }
+        }
+    }
+
+    fun showLoading() {
+
+    }
+
+    private fun hideLoading() {
+
     }
 }

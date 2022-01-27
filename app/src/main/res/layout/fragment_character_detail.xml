@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.latinos.mobiletest.features.character.detail.CharacterDetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -106,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="no_results"
+            android:text="@{viewModel.workoutDetailModel.description}"
             android:textSize="24sp"
             android:visibility="gone"
             tools:text="no_results"
