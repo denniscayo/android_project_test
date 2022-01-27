@@ -21,24 +21,6 @@ class CharacterAdapter : BasePagingAdapter<CharacterModel, ItemCharacterBinding>
     }
 ) {
     var clickListener: ((CharacterModel) -> Unit)? = null
-//    override fun createBinding(parent: ViewGroup): ItemCharacterBinding {
-//        val binding = DataBindingUtil.inflate<ItemCharacterBinding>(
-//            LayoutInflater.from(parent.context),
-//            R.layout.item_character,
-//            parent,
-//            false
-//        )
-//
-//        binding.root.setOnClickListener {
-//            binding.model?.let {
-//                repoClickCallback?.invoke(it)
-//
-//            }
-//        }
-//
-//
-//        return binding
-//    }
 
     override val itemViewType = R.layout.item_character
 

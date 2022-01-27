@@ -65,7 +65,7 @@ class CharacterPagedFragment : Fragment() {
 
     private fun setupMovieList() {
         binding.recyclerView.apply {
-            layoutManager = GridLayoutManager(activity, 1)
+            layoutManager = GridLayoutManager(activity, 2                                                )
             adapter = characterPagedAdapter
             characterPagedAdapter.clickListener = { character ->
                 //navigateToDetails(movie, view, transitionName)

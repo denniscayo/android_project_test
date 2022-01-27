@@ -1,5 +1,6 @@
 package com.latinos.data.character.paging
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.latinos.data.character.mapper.toCharacterModelList
@@ -23,7 +24,7 @@ class CharacterPagingSource(
             ).body() ?: run { return LoadResult.Error(Throwable()) }
 
             val nextPage =
-                if (response.data.offset < response.data.total) response.data.offset + 1 else null
+                if (response.data.offset < response.data.total) response.data.offset + 50 else null
 
             LoadResult.Page(
                 data = response.data.results.toCharacterModelList(),
