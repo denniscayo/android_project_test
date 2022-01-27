@@ -2,6 +2,7 @@ package com.latinos.data.utils
 
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
+import com.latinos.domain.utils.repository.Result
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 

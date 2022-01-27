@@ -2,14 +2,13 @@ package com.latinos.mobiletest.features.character.paged
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.cachedIn
-import com.latinos.domain.characters.usecase.GetPaginatedCharactersUseCase
+import com.latinos.domain.characters.usecase.GetCharacterByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class CharacterPagedViewModel @Inject constructor(
-    getPaginatedCharactersUseCase: GetPaginatedCharactersUseCase,
+    GetCharacterByIdUseCase: GetCharacterByIdUseCase,
 ) :
     ViewModel() {
 

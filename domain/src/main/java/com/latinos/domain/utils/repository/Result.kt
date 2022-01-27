@@ -1,4 +1,4 @@
-package com.latinos.data.utils
+package com.latinos.domain.utils.repository
 
 sealed class Result<out T>(
     val data: T? = null,
@@ -12,5 +12,8 @@ sealed class Result<out T>(
         val message: Int? = null,
     ) {
         class Generic(throwable: Throwable? = null) : ErrorType(throwable)
+        class DatabaseError(throwable: Throwable? = null) : ErrorType(throwable)
+        class IOError(throwable: Throwable? = null) : ErrorType(throwable)
+        class HttpError(throwable: Throwable? = null, val statusCode: Int) : ErrorType(throwable)
     }
 }
