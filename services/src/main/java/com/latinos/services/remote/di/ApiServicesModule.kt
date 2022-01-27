@@ -1,11 +1,19 @@
 package com.latinos.services.remote.di
 
+import android.content.Context
 import com.latinos.services.BuildConfig
-import com.latinos.services.remote.charaters.CharactersService
-import com.latinos.services.remote.charaters.CharactersServiceData
+import com.latinos.services.remote.manager.NetworkManager
+import com.latinos.services.remote.manager.NetworkManagerImpl
+import com.latinos.services.remote.services.RestServices
+import com.latinos.services.remote.services.charaters.CharacterRemoteDataSource
+import com.latinos.services.remote.services.charaters.CharacterRemoteDataSourceImpl
+import com.latinos.services.remote.services.charaters.CharactersService
+import com.latinos.services.remote.services.charaters.CharactersServiceData
+import com.latinos.services.remote.services.charaters.error.CharacterErrorMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -47,5 +55,26 @@ object ApiServicesModule {
                 chain.proceed(requestBuilder.build())
             }
             .build()
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideRestServices(networkManager: NetworkManager): RestServices {
+        return RestServices.Default(networkManager)
+    }
+
+    @Provides
+    @Singleton
+    fun providesNetworkManager(@ApplicationContext context: Context): NetworkManager =
+        NetworkManagerImpl(context)
+
+    @Provides
+    @Singleton
+    internal fun provideCharacterRemoteDataSource(
+        restServices: RestServices,
+        charactersService: CharactersService,
+        errorMapper: CharacterErrorMapper,
+    ): CharacterRemoteDataSource {
+        return CharacterRemoteDataSourceImpl(restServices, charactersService, errorMapper)
     }
 }

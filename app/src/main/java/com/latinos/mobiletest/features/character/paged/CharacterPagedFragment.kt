@@ -60,7 +60,7 @@ class CharacterPagedFragment : Fragment() {
 
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.moviesPaged.collectLatest { characterPagedAdapter.submitData(it) }
+            viewModel.characterPaged.collectLatest { characterPagedAdapter.submitData(it) }
         }
     }
 

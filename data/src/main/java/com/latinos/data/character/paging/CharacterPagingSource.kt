@@ -1,11 +1,10 @@
 package com.latinos.data.character.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.latinos.data.character.mapper.toCharacterModelList
 import com.latinos.domain.characters.model.CharacterModel
-import com.latinos.services.remote.charaters.CharactersService
+import com.latinos.services.remote.services.charaters.CharactersService
 import retrofit2.HttpException
 import java.io.IOException
 

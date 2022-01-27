@@ -1,21 +1,23 @@
 package com.latinos.mobiletest.features.character.detail
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.latinos.common.utils.either.onFailure
+import com.latinos.common.utils.either.onSuccess
 import com.latinos.domain.characters.model.CharacterDetailModel
+import com.latinos.domain.characters.model.CharacterErrorModel
 import com.latinos.domain.characters.usecase.GetCharacterByIdUseCase
-import com.latinos.domain.utils.repository.Result
-import com.latinos.mobiletest.R
+import com.latinos.domain.utils.error.GlobalErrorMapper
+import com.latinos.domain.utils.error.GlobalErrorType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
 class CharacterDetailViewModel @Inject constructor(
     private val getCharacterByIdUseCase: GetCharacterByIdUseCase,
+    private val errorMapper: GlobalErrorMapper,
 ) : ViewModel() {
     private val _state = MutableStateFlow<State>(State.Idle)
     val state: StateFlow<State> = _state
@@ -26,25 +28,25 @@ class CharacterDetailViewModel @Inject constructor(
     private var _characterDetailModel = MutableStateFlow(CharacterDetailModel())
     val workoutDetailModel: StateFlow<CharacterDetailModel> = _characterDetailModel
 
-    fun getCharacterByIdUseCase(characterId: String) {
-        getCharacterByIdUseCase.execute(
-            GetCharacterByIdUseCase.Params(characterId)
-        ).onEach { result ->
-
-            result.data?.let {
-                _characterDetailModel.value = result.data!!
+    fun getCharacterByIdUseCase(characterId: String) =
+        getCharacterByIdUseCase
+            .prepare(characterId)
+            .onEach {
+                it.onSuccess { model ->
+                    _characterDetailModel.value = model
+                }
+                it.onFailure { error -> _events.send(Event.CharacterError(error)) }
             }
-            determineErrorMessage(result.error)
-        }
-    }
+            .catch { _events.send(Event.Error(errorMapper.map(it))) }
+            .launchIn(viewModelScope)
 
-    private suspend fun determineErrorMessage(error: Result.ErrorType?) = when (error) {
-        is Result.ErrorType.DatabaseError -> _events.send(Event.ErrorCharacter(R.string.error_database))
-        is Result.ErrorType.HttpError -> _events.send(Event.ErrorCharacter(R.string.error_network))
-        is Result.ErrorType.IOError -> _events.send(Event.ErrorCharacter(R.string.error_connection))
-        is Result.ErrorType.Generic -> _events.send(Event.ErrorCharacter(R.string.error_generic))
-        null -> null
-    }
+//    private suspend fun determineErrorMessage(error: Result.ErrorType?) = when (error) {
+//        is Result.ErrorType.DatabaseError -> _events.send(Event.ErrorCharacter(R.string.error_database))
+//        is Result.ErrorType.HttpError -> _events.send(Event.ErrorCharacter(R.string.error_network))
+//        is Result.ErrorType.IOError -> _events.send(Event.ErrorCharacter(R.string.error_connection))
+//        is Result.ErrorType.Generic -> _events.send(Event.ErrorCharacter(R.string.error_generic))
+//        null -> null
+//    }
 
     sealed class State {
         object Idle : State()
@@ -54,5 +56,7 @@ class CharacterDetailViewModel @Inject constructor(
     sealed class Event {
         data class ErrorCharacter(val text: Int) : Event()
         object NavigateToUnregisteredLogin : Event()
+        data class Error(val type: GlobalErrorType = GlobalErrorType.GENERIC_ERROR) : Event()
+        data class CharacterError(val error: CharacterErrorModel) : Event()
     }
 }

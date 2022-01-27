@@ -109,9 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@{viewModel.workoutDetailModel.description}"
+            android:text="@{viewModel.workoutDetailModel.name}"
             android:textSize="24sp"
-            android:visibility="gone"
             tools:text="no_results"
             tools:visibility="visible" />
 

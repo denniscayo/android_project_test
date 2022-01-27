@@ -19,4 +19,5 @@ abstract class DataModule {
 
     @Binds
     abstract fun bindErrorHandler(errorHandlerImpl: ErrorHandlerImpl): ErrorHandler
+
 }

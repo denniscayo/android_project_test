@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="MobileTest.app" target="11" />
+      <module name="MobileTest.common-utils" target="11" />
       <module name="MobileTest.data" target="11" />
       <module name="MobileTest.database" target="11" />
       <module name="MobileTest.services" target="11" />
