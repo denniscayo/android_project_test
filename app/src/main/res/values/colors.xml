@@ -12,5 +12,9 @@
     <color name="grey_60">#666666</color>
     <color name="grey_80">#37474F</color>
     <color name="grey_90">#263238</color>
-    <color name="blue_grey_800">#37474F</color>
+    <color name="overlay_dark_40">#66000000</color>
+
+    <color name="color_background">#ffffff</color>
+    <color name="background_image_tint">#77002237</color>
+    <color name="color_on_background">#121212</color>
 </resources>

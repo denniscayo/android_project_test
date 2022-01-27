@@ -8,9 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.latinos.mobiletest.R
-import com.latinos.mobiletest.databinding.FragmentHeroesBinding
+import com.latinos.mobiletest.databinding.FragmentCharacterPagedBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -20,7 +21,7 @@ class CharacterPagedFragment : Fragment() {
 
     private val viewModel: CharacterPagedViewModel by viewModels()
 
-    private var _binding: FragmentHeroesBinding? = null
+    private var _binding: FragmentCharacterPagedBinding? = null
     private val binding get() = _binding!!
 
     private val characterPagedAdapter by lazy {
@@ -35,7 +36,7 @@ class CharacterPagedFragment : Fragment() {
 
         _binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_heroes,
+            R.layout.fragment_character_paged,
             container,
             false
         )
@@ -65,10 +66,13 @@ class CharacterPagedFragment : Fragment() {
 
     private fun setupMovieList() {
         binding.recyclerView.apply {
-            layoutManager = GridLayoutManager(activity, 2                                                )
+            layoutManager = GridLayoutManager(activity, 2)
             adapter = characterPagedAdapter
             characterPagedAdapter.clickListener = { character ->
-                //navigateToDetails(movie, view, transitionName)
+                //CharacterPagedFragmentDirections
+                findNavController().navigate(
+                    CharacterPagedFragmentDirections.actionNavigationCharacterPagedToNavigationCharacterDetail(
+                        character.id, character.name))
             }
         }
     }
