@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.latinos.data.character.mapper.toCharacterModelList
 import com.latinos.domain.characters.model.CharacterModel
 import com.latinos.services.remote.services.charaters.CharactersService
+import com.latinos.services.remote.services.charaters.CharactersServiceData.Companion.LIMIT_ITEMS
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -19,11 +20,11 @@ class CharacterPagingSource(
             val nextPageNumber = params.key ?: 1
             val response = charactersService.getPagedCharacters(
                 offset = nextPageNumber.toString(),
-                limit = 50,
+                limit = LIMIT_ITEMS,
             ).body() ?: run { return LoadResult.Error(Throwable()) }
 
             val nextPage =
-                if (response.data.offset < response.data.total) response.data.offset + 50 else null
+                if (response.data.offset < response.data.total) response.data.offset + LIMIT_ITEMS else null
 
             LoadResult.Page(
                 data = response.data.results.toCharacterModelList(),

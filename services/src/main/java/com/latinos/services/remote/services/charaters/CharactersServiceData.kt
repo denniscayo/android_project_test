@@ -9,8 +9,8 @@ class CharactersServiceData {
     companion object {
         val timeStamp = Timestamp(System.currentTimeMillis()).time.toString()
         const val API_KEY = "7067eef13865fb719522b26487b3d68e"
-        const val PRIVATE_KEY = "6bad476e124cd76e5e96f50c684f328862825d60"
-        const val limit = "50"
+        private const val PRIVATE_KEY = "6bad476e124cd76e5e96f50c684f328862825d60"
+        const val LIMIT_ITEMS = 50
         fun hash(): String {
             val input = "$timeStamp$PRIVATE_KEY$API_KEY"
             val md = MessageDigest.getInstance("MD5")

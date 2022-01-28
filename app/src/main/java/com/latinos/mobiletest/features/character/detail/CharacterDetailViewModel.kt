@@ -9,6 +9,7 @@ import com.latinos.domain.characters.model.CharacterErrorModel
 import com.latinos.domain.characters.usecase.GetCharacterByIdUseCase
 import com.latinos.domain.utils.error.GlobalErrorMapper
 import com.latinos.domain.utils.error.GlobalErrorType
+import com.latinos.mobiletest.features.base.state.StateView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
@@ -19,8 +20,8 @@ class CharacterDetailViewModel @Inject constructor(
     private val getCharacterByIdUseCase: GetCharacterByIdUseCase,
     private val errorMapper: GlobalErrorMapper,
 ) : ViewModel() {
-    private val _state = MutableStateFlow<State>(State.Idle)
-    val state: StateFlow<State> = _state
+    private val _state = MutableStateFlow<StateView>(StateView.Idle)
+    val state: StateFlow<StateView> = _state
 
     private val _events = Channel<Event>(Channel.RENDEZVOUS)
     val events = _events.receiveAsFlow()
@@ -40,13 +41,11 @@ class CharacterDetailViewModel @Inject constructor(
             .catch { _events.send(Event.Error(errorMapper.map(it))) }
             .launchIn(viewModelScope)
 
-    sealed class State {
-        object Idle : State()
-        data class Loading(val showLoading: Boolean = true) : State()
-    }
-
     sealed class Event {
         data class Error(val type: GlobalErrorType = GlobalErrorType.GENERIC_ERROR) : Event()
         data class CharacterError(val error: CharacterErrorModel) : Event()
+        object NavigateToComicList : Event()
+        object NavigateToSeriesList : Event()
+        object NavigateToEventList : Event()
     }
 }

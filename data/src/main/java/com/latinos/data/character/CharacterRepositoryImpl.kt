@@ -14,6 +14,7 @@ import com.latinos.domain.characters.model.CharacterErrorModel
 import com.latinos.domain.characters.repository.CharacterRepository
 import com.latinos.services.remote.services.charaters.CharacterRemoteDataSource
 import com.latinos.services.remote.services.charaters.CharactersService
+import com.latinos.services.remote.services.charaters.CharactersServiceData.Companion.LIMIT_ITEMS
 import javax.inject.Inject
 
 class CharacterRepositoryImpl @Inject constructor(
@@ -22,7 +23,7 @@ class CharacterRepositoryImpl @Inject constructor(
     private val characterDao: CharacterDao,
 ) : CharacterRepository {
     override fun getPaginatedCharacters() = Pager(
-        PagingConfig(pageSize = 50)
+        PagingConfig(pageSize = LIMIT_ITEMS)
     ) {
         CharacterPagingSource(charactersService)
     }.flow

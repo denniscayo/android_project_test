@@ -11,6 +11,7 @@ import com.latinos.data.utils.collectInLifeCycle
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentCharacterDetailBinding
 import com.latinos.mobiletest.features.base.BaseFragment
+import com.latinos.mobiletest.features.base.state.StateView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,10 +54,12 @@ class CharacterDetailFragment : BaseFragment() {
         viewModel.events.collectInLifeCycle(this) { renderEvents(it) }
     }
 
-    private fun renderState(state: CharacterDetailViewModel.State) =
+    private fun renderState(state: StateView) =
         when (state) {
-            is CharacterDetailViewModel.State.Loading -> if (state.showLoading) showLoading() else hideLoading()
-            else -> {}
+            is StateView.Loading -> if (state.showLoading) showLoading() else hideLoading()
+            is StateView.Error -> {}
+            is StateView.Success -> {}
+            StateView.Idle -> {}
         }
 
     private fun renderEvents(event: CharacterDetailViewModel.Event) {
@@ -67,6 +70,12 @@ class CharacterDetailFragment : BaseFragment() {
             }
             is CharacterDetailViewModel.Event.Error -> {
                 Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
+            }
+            CharacterDetailViewModel.Event.NavigateToComicList -> { /*TODO: navigate to Comic List*/
+            }
+            CharacterDetailViewModel.Event.NavigateToEventList -> { /*TODO: navigate to Event List*/
+            }
+            CharacterDetailViewModel.Event.NavigateToSeriesList -> { /*TODO: navigate to Series List*/
             }
         }
     }
