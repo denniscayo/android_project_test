@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.GridLayoutManager
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentCharacterPagedBinding
@@ -50,7 +53,8 @@ class CharacterPagedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
-        setupMovieList()
+        setupCharacterList()
+        setupToolbar()
     }
 
     override fun onDestroyView() {
@@ -64,7 +68,18 @@ class CharacterPagedFragment : Fragment() {
         }
     }
 
-    private fun setupMovieList() {
+    private fun setupToolbar() {
+        (activity as? AppCompatActivity)?.setSupportActionBar(binding.layoutToolbar.toolbar)
+        NavigationUI.setupWithNavController(
+            binding.layoutToolbar.collapsingToolbarLayout,
+            binding.layoutToolbar.toolbar,
+            findNavController(),
+            AppBarConfiguration.Builder(R.id.navigation_character_paged, R.id.navigation_dashboard)
+                .build()
+        )
+    }
+
+    private fun setupCharacterList() {
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(activity, 2)
             adapter = characterPagedAdapter

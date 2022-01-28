@@ -51,11 +51,15 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
+    // shared preferences
+    implementation 'androidx.preference:preference:1.1.1'
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_interceptor_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 
     implementation project(":domain")
     implementation project(":database")

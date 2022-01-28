@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
     @Provides
-    fun provideMovieDao(database: MarvelDatabase): CharacterDao {
+    fun provideCharacterDao(database: MarvelDatabase): CharacterDao {
         return database.characterDao()
     }
 

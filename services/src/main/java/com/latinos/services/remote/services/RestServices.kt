@@ -3,8 +3,8 @@ package com.latinos.services.remote.services
 import com.google.gson.JsonParseException
 import com.latinos.common.utils.either.Either
 import com.latinos.services.remote.manager.NetworkManager
-import com.latinos.services.remote.manager.error.BSANNetworkException
-import com.latinos.services.remote.manager.error.BSANServiceException
+import com.latinos.services.remote.manager.error.RestNetworkException
+import com.latinos.services.remote.manager.error.RestServiceException
 import okhttp3.Headers
 import okhttp3.Request
 import retrofit2.Call
@@ -12,7 +12,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 internal interface RestServices {
-    @Throws(BSANNetworkException::class, BSANServiceException::class)
+    @Throws(RestNetworkException::class, RestServiceException::class)
     fun <T> execute(request: Call<T>): Either<RestResponse<T>, RestError>
 
     class Default
@@ -39,10 +39,10 @@ internal interface RestServices {
                         response.headers()))
                 }
             } catch (ex: JsonParseException) {
-                throw BSANServiceException(ex.message,
+                throw RestServiceException(ex.message,
                     (request.request() as Request).url.toString())
             } catch (ex: IOException) {
-                throw BSANServiceException(ex.message,
+                throw RestServiceException(ex.message,
                     (request.request() as Request).url.toString())
             }
     }

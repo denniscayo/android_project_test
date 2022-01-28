@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.latinos.services.remote.manager.error.BSANNetworkException;
+import com.latinos.services.remote.manager.error.RestNetworkException;
 
 public class NetworkManagerImpl implements NetworkManager {
 
@@ -41,22 +41,22 @@ public class NetworkManagerImpl implements NetworkManager {
     }
 
     /**
-     * Checks if Internet is available or throws a {@link BSANNetworkException}
+     * Checks if Internet is available or throws a {@link RestNetworkException}
      *
-     * @throws BSANNetworkException when internet is not available
+     * @throws RestNetworkException when internet is not available
      */
-    public void checkConnectivity() throws BSANNetworkException {
+    public void checkConnectivity() throws RestNetworkException {
         if (!isInternetAvailable(context)) {
-            throw new BSANNetworkException("Not Available");
+            throw new RestNetworkException("Not Available");
         }
     }
 
     /**
-     * Returns if the active network is {@link ConnectivityManager#TYPE_WIFI}. If there is no internet will throw a {@link BSANNetworkException}
+     * Returns if the active network is {@link ConnectivityManager#TYPE_WIFI}. If there is no internet will throw a {@link RestNetworkException}
      *
-     * @throws BSANNetworkException when internet is not available
+     * @throws RestNetworkException when internet is not available
      */
-    public boolean checkWifi() throws BSANNetworkException {
+    public boolean checkWifi() throws RestNetworkException {
         checkConnectivity();
         return isWifiConnected(context);
     }
