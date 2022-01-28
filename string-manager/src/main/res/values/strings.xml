@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">MobileTest</string>
+    <string name="title_heroes">Heroes</string>
+    <string name="title_about">About</string>
+    <string name="title_profile">Profile</string>
+
+
+    <string name="error_database">Error</string>
+    <string name="error_network">Error</string>
+    <string name="error_generic">Error</string>
+    <string name="error_connection">Error</string>
+    <string name="no_results_placeholder_text">No Data</string>
+    <string name="version">Version</string>
+    <string name="version_number">1.0.0</string>
+    <string name="last_update">Last Update</string>
+    <string name="last_update_date">January 2021</string>
+    <string name="short_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="medium_lorem_ipsum">Quisque imperdiet nunc at massa dictum volutpat. Etiam id orci ipsum. Integer id ex dignissim</string>
+    <string name="middle_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin</string>
+    <string name="info_app">This Android application uses marvel Api with clean architecture principles and MVVM.\n\I do also use Hilt, Kotlin, Coroutines, Kotlin Flow, Room, Retrofit, Paging 3 library.</string>
+
+    <string name="generic_error">Generic error</string>
+    <string name="character_error">Character error</string>
+
+    <string name="character_comics">Comics</string>
+    <string name="character_series">Series</string>
+    <string name="character_events">Events</string>
+    <string name="description_label">Description</string>
+    <string name="copyright_label">Copyright</string>
+</resources>

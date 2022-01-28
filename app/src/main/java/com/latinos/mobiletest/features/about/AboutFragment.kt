@@ -4,16 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentAboutBinding
+import com.latinos.mobiletest.features.base.BaseFragment
 
-class AboutFragment : Fragment() {
+class AboutFragment : BaseFragment() {
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
 
@@ -34,22 +30,11 @@ class AboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupToolbar()
+        setupToolbar(binding.layoutToolbar.toolbar, binding.layoutToolbar.collapsingToolbarLayout)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun setupToolbar() {
-        (activity as? AppCompatActivity)?.setSupportActionBar(binding.layoutToolbar.toolbar)
-        NavigationUI.setupWithNavController(
-            binding.layoutToolbar.collapsingToolbarLayout,
-            binding.layoutToolbar.toolbar,
-            findNavController(),
-            AppBarConfiguration.Builder(R.id.navigation_character_paged, R.id.navigation_about)
-                .build()
-        )
     }
 }
