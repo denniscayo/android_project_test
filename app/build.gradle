@@ -68,14 +68,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_interceptor_version"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-
-    // Preference
-    implementation 'androidx.preference:preference:1.1.1'
-
 
     implementation project(":data")
     implementation project(":domain")

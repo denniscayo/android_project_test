@@ -47,7 +47,7 @@
                     android:scaleType="centerCrop"
                     app:layout_collapseMode="parallax"
                     app:layout_collapseParallaxMultiplier="0.5"
-                    bind:bindImageSimple="@{viewModel.workoutDetailModel.image}"
+                    bind:bindImageSimple="@{viewModel.characterDetailModel.image}"
                     tools:src="@drawable/ic_launcher_background" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -59,7 +59,7 @@
                     android:layout_marginBottom="56dp"
                     android:gravity="start|bottom"
                     android:orientation="vertical"
-                    android:text="@{viewModel.workoutDetailModel.name}"
+                    android:text="@{viewModel.characterDetailModel.name}"
                     app:layout_collapseMode="parallax"
                     app:layout_collapseParallaxMultiplier="0.25"
                     tools:text="Title" />
@@ -82,7 +82,7 @@
                         android:ellipsize="end"
                         android:gravity="center_vertical"
                         android:lines="1"
-                        android:text="@{viewModel.workoutDetailModel.name}"
+                        android:text="@{viewModel.characterDetailModel.name}"
                         tools:text="collapsed title" />
 
                 </com.google.android.material.appbar.MaterialToolbar>
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@{viewModel.workoutDetailModel.description}"
+                android:text="@{viewModel.characterDetailModel.description}"
                 android:textSize="24sp"
                 tools:text="no_results"
                 tools:visibility="visible" />

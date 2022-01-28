@@ -26,7 +26,7 @@ class CharacterDetailViewModel @Inject constructor(
     val events = _events.receiveAsFlow()
 
     private var _characterDetailModel = MutableStateFlow(CharacterDetailModel())
-    val workoutDetailModel: StateFlow<CharacterDetailModel> = _characterDetailModel
+    val characterDetailModel: StateFlow<CharacterDetailModel> = _characterDetailModel
 
     fun getCharacterByIdUseCase(characterId: String) =
         getCharacterByIdUseCase
@@ -40,14 +40,6 @@ class CharacterDetailViewModel @Inject constructor(
             .catch { _events.send(Event.Error(errorMapper.map(it))) }
             .launchIn(viewModelScope)
 
-//    private suspend fun determineErrorMessage(error: Result.ErrorType?) = when (error) {
-//        is Result.ErrorType.DatabaseError -> _events.send(Event.ErrorCharacter(R.string.error_database))
-//        is Result.ErrorType.HttpError -> _events.send(Event.ErrorCharacter(R.string.error_network))
-//        is Result.ErrorType.IOError -> _events.send(Event.ErrorCharacter(R.string.error_connection))
-//        is Result.ErrorType.Generic -> _events.send(Event.ErrorCharacter(R.string.error_generic))
-//        null -> null
-//    }
-
     sealed class State {
         object Idle : State()
         data class Loading(val showLoading: Boolean = true) : State()
@@ -55,7 +47,6 @@ class CharacterDetailViewModel @Inject constructor(
 
     sealed class Event {
         data class ErrorCharacter(val text: Int) : Event()
-        object NavigateToUnregisteredLogin : Event()
         data class Error(val type: GlobalErrorType = GlobalErrorType.GENERIC_ERROR) : Event()
         data class CharacterError(val error: CharacterErrorModel) : Event()
     }

@@ -94,8 +94,10 @@ class CharacterDetailFragment : Fragment(), AppBarOffsetListener.OnScrollStateLi
                 Toast.makeText(requireContext(), event.text, Toast.LENGTH_SHORT).show()
 
             }
-            CharacterDetailViewModel.Event.NavigateToUnregisteredLogin -> {
+            is CharacterDetailViewModel.Event.CharacterError -> {
 
+            }
+            is CharacterDetailViewModel.Event.Error -> {
             }
         }
     }
@@ -128,12 +130,12 @@ class CharacterDetailFragment : Fragment(), AppBarOffsetListener.OnScrollStateLi
         requireActivity().setTranslucentStatusBar(scrolled < SCRIM_TRIGGER_THRESHOLD)
     }
 
-    fun showLoading() {
-
+    private fun showLoading() {
+        //TODO: Implement
     }
 
     private fun hideLoading() {
-
+//TODO: Implement
     }
 
     companion object {
