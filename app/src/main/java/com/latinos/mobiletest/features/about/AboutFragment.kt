@@ -48,9 +48,7 @@ class AboutFragment : Fragment() {
             binding.layoutToolbar.collapsingToolbarLayout,
             binding.layoutToolbar.toolbar,
             findNavController(),
-            AppBarConfiguration.Builder(R.id.navigation_character_paged,
-                R.id.navigation_profile,
-                R.id.navigation_about)
+            AppBarConfiguration.Builder(R.id.navigation_character_paged, R.id.navigation_about)
                 .build()
         )
     }

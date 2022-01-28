@@ -16,12 +16,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.latinos.mobiletest.features.dashboard.ProfileFragment"
-        android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
-
-    <fragment
         android:id="@+id/navigation_about"
         android:name="com.latinos.mobiletest.features.about.AboutFragment"
         android:label="@string/app_name"
