@@ -66,22 +66,6 @@
         <item name="iconTint">@color/color_primary_blue</item>
     </style>
 
-    <style name="AppTheme.Red" parent="MyTheme.DayNight">
-        <item name="colorPrimary">@color/color_primary_red</item>
-        <item name="colorPrimaryVariant">@color/color_primary_variant_red</item>
-        <item name="colorSecondary">@color/color_primary_red</item>
-        <item name="colorSecondaryVariant">@color/color_primary_variant_red</item>
-        <item name="iconTint">@color/color_primary_red</item>
-    </style>
-
-    <style name="AppTheme.Green" parent="MyTheme.DayNight">
-        <item name="colorPrimary">@color/color_primary_green</item>
-        <item name="colorPrimaryVariant">@color/color_primary_variant_green</item>
-        <item name="colorSecondary">@color/color_primary_green</item>
-        <item name="colorSecondaryVariant">@color/color_primary_variant_green</item>
-        <item name="iconTint">@color/color_primary_green</item>
-    </style>
-
     <style name="ShapeAppearanceOverlay.App.SelectedCornerRadius" parent="">
         <item name="cornerSizeTopRight">8dp</item>
         <item name="cornerFamilyTopRight">rounded</item>
