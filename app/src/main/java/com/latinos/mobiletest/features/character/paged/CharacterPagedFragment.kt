@@ -74,7 +74,9 @@ class CharacterPagedFragment : Fragment() {
             binding.layoutToolbar.collapsingToolbarLayout,
             binding.layoutToolbar.toolbar,
             findNavController(),
-            AppBarConfiguration.Builder(R.id.navigation_character_paged, R.id.navigation_dashboard)
+            AppBarConfiguration.Builder(R.id.navigation_character_paged,
+                R.id.navigation_profile,
+                R.id.navigation_about)
                 .build()
         )
     }

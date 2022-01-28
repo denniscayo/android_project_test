@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.latinos.mobiletest.R
-import com.latinos.mobiletest.databinding.FragmentSettingsBinding
+import com.latinos.mobiletest.databinding.FragmentProfileBinding
 
-class DashboardFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentSettingsBinding? = null
+    private lateinit var viewModel: ProfileViewModel
+    private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,7 +25,7 @@ class DashboardFragment : Fragment() {
     ): View {
         _binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_settings,
+            R.layout.fragment_profile,
             container,
             false
         )

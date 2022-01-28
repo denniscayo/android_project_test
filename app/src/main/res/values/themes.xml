@@ -15,6 +15,7 @@
 
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.MyTheme" parent="Base.MaterialThemeBuilder">
+        <!-- Customize your theme here. -->
         <!--Material color attributes -->
         <item name="colorPrimary">@color/color_primary_blue</item>
         <item name="colorPrimaryVariant">@color/color_primary_variant_blue</item>

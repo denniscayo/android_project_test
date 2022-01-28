@@ -40,16 +40,15 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_character_paged, R.id.navigation_dashboard))
+            R.id.navigation_character_paged, R.id.navigation_profile, R.id.navigation_about))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.navigation_character_paged,
-                R.id.navigation_dashboard,
-                -> showNavigationBar()
-                else -> hideNavigationBar()
+                R.id.navigation_character_detail,
+                -> hideNavigationBar()
+                else -> showNavigationBar()
             }
         }
     }

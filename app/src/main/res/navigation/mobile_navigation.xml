@@ -12,17 +12,23 @@
         tools:layout="@layout/fragment_character_paged">
         <action
             android:id="@+id/action_navigation_character_paged_to_navigation_character_detail"
-            app:destination="@id/characterDetail" />
+            app:destination="@id/navigation_character_detail" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.latinos.mobiletest.features.dashboard.DashboardFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/navigation_profile"
+        android:name="com.latinos.mobiletest.features.dashboard.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/characterDetail"
+        android:id="@+id/navigation_about"
+        android:name="com.latinos.mobiletest.features.about.AboutFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/navigation_character_detail"
         android:name="com.latinos.mobiletest.features.character.detail.CharacterDetailFragment"
         android:label="{characterName}"
         tools:layout="@layout/fragment_character_detail">
