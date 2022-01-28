@@ -21,6 +21,7 @@
 
     <string name="generic_error">Generic error</string>
     <string name="character_error">Character error</string>
+    <string name="character_error_not_found">Character not found</string>
 
     <string name="character_comics">Comics</string>
     <string name="character_series">Series</string>

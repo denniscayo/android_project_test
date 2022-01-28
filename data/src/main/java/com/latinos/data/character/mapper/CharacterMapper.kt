@@ -51,4 +51,8 @@ fun CharacterDTO.toCharacterEntity(): CharacterEntity {
         attributionText)
 }
 
-fun CharacterErrorDTO.toCharacterErrorModel() = CharacterErrorModel.Generic
+fun CharacterErrorDTO.toCharacterErrorModel() =
+    when (this) {
+        is CharacterErrorDTO.NotExits -> CharacterErrorModel.CharacterNotExits
+        is CharacterErrorDTO.Generic -> CharacterErrorModel.Generic
+    }

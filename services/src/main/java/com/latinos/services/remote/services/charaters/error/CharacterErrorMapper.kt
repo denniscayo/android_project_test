@@ -11,6 +11,7 @@ internal class CharacterErrorMapper @Inject constructor(private val gson: Gson) 
         try {
             val errorResponse = gson.fromJson(error.description, CharacterErrorResponse::class.java)
             when (error.statusCode) {
+                404 -> CharacterErrorDTO.NotExits
                 else -> CharacterErrorDTO.Generic
             }
         } catch (t: Throwable) {

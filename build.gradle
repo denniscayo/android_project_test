@@ -3,6 +3,7 @@ buildscript {
 
     ext {
         kotlin_version = "1.4.20"
+        coroutines_version = "1.6.0"
         retrofit_version = "2.9.0"
         okhttp_version = "5.0.0-alpha.2"
         okhttp_interceptor_version = "5.0.0-alpha.2"

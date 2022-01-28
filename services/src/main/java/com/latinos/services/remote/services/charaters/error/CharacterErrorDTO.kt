@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 sealed class CharacterErrorDTO {
     object Generic : CharacterErrorDTO()
+    object NotExits : CharacterErrorDTO()
 }
 
 @Keep

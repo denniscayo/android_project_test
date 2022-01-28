@@ -1,4 +1,4 @@
-package com.latinos.domain.utils.dispatchers
+package com.latinos.common.utils.dispatchers
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

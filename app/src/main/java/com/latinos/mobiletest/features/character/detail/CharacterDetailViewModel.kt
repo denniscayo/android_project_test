@@ -29,7 +29,12 @@ class CharacterDetailViewModel @Inject constructor(
     private var _characterDetailModel = MutableStateFlow(CharacterDetailModel())
     val characterDetailModel: StateFlow<CharacterDetailModel> = _characterDetailModel
 
-    fun getCharacterByIdUseCase(characterId: String) =
+    fun getCharacterById(characterId: String) {
+        if (characterId.isNotEmpty())
+            getCharacterByIdUseCase(characterId)
+    }
+
+    private fun getCharacterByIdUseCase(characterId: String) =
         getCharacterByIdUseCase
             .prepare(characterId)
             .onEach {

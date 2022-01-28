@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.latinos.data.utils.collectInLifeCycle
+import com.latinos.domain.characters.model.CharacterErrorModel
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentCharacterDetailBinding
 import com.latinos.mobiletest.features.base.BaseFragment
@@ -47,7 +47,7 @@ class CharacterDetailFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
 
         val characterId = CharacterDetailFragmentArgs.fromBundle(requireArguments()).characterId
-        viewModel.getCharacterByIdUseCase(characterId)
+        viewModel.getCharacterById(characterId)
         observeViewModel()
     }
 
@@ -67,18 +67,22 @@ class CharacterDetailFragment : BaseFragment() {
     private fun renderEvents(event: CharacterDetailViewModel.Event) {
         when (event) {
             is CharacterDetailViewModel.Event.CharacterError -> {
-                Toast.makeText(requireContext(), R.string.character_error, Toast.LENGTH_SHORT)
-                    .show()
+                renderEventCharacterError(event.error)
             }
-            is CharacterDetailViewModel.Event.Error -> {
-                Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
-            }
+            is CharacterDetailViewModel.Event.Error -> showToast(R.string.generic_error)
             CharacterDetailViewModel.Event.NavigateToComicList -> { /*TODO: navigate to Comic List*/
             }
             CharacterDetailViewModel.Event.NavigateToEventList -> { /*TODO: navigate to Event List*/
             }
             CharacterDetailViewModel.Event.NavigateToSeriesList -> { /*TODO: navigate to Series List*/
             }
+        }
+    }
+
+    private fun renderEventCharacterError(error: CharacterErrorModel) {
+        when (error) {
+            CharacterErrorModel.CharacterNotExits -> showToast(R.string.character_error_not_found)
+            CharacterErrorModel.Generic -> showToast(R.string.character_error)
         }
     }
 

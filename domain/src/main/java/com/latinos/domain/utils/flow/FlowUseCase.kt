@@ -1,7 +1,7 @@
 package com.latinos.data.utils
 
 import androidx.annotation.CheckResult
-import com.latinos.domain.utils.dispatchers.DispatcherProvider
+import com.latinos.common.utils.dispatchers.DispatcherProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn

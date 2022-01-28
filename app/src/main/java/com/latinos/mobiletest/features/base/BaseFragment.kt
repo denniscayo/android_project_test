@@ -1,5 +1,6 @@
 package com.latinos.mobiletest.features.base
 
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -30,4 +31,8 @@ abstract class BaseFragment : Fragment() {
             AppBarConfiguration(navController.graph)
         )
     }
+
+    protected fun showToast(text: Int) =
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+
 }
