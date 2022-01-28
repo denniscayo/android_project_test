@@ -17,7 +17,6 @@ class CharacterAdapter : BasePagingAdapter<CharacterModel, ItemCharacterBinding>
         override fun areContentsTheSame(oldItem: CharacterModel, newItem: CharacterModel): Boolean {
             return oldItem.id == newItem.id
         }
-
     }
 ) {
     var clickListener: ((CharacterModel) -> Unit)? = null

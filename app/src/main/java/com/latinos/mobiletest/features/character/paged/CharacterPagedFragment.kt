@@ -44,7 +44,6 @@ class CharacterPagedFragment : Fragment() {
             false
         )
 
-        //binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root

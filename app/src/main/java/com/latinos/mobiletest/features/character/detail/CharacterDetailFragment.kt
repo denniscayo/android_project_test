@@ -6,9 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.ColorInt
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import androidx.core.graphics.ColorUtils.blendARGB
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -16,13 +13,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.appbar.MaterialToolbar
 import com.latinos.data.utils.collectInLifeCycle
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentCharacterDetailBinding
 import com.latinos.mobiletest.features.base.AppBarOffsetListener
 import com.latinos.mobiletest.features.base.isNightModeActive
 import com.latinos.mobiletest.features.base.setTranslucentStatusBar
+import com.latinos.mobiletest.features.base.setUpButtonColor
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -95,18 +92,13 @@ class CharacterDetailFragment : Fragment(), AppBarOffsetListener.OnScrollStateLi
 
             }
             is CharacterDetailViewModel.Event.CharacterError -> {
-
+                Toast.makeText(requireContext(), R.string.character_error, Toast.LENGTH_SHORT)
+                    .show()
             }
             is CharacterDetailViewModel.Event.Error -> {
+                Toast.makeText(requireContext(), R.string.generic_error, Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    fun MaterialToolbar?.setUpButtonColor(@ColorInt color: Int) {
-        if (this == null) return
-        navigationIcon?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
-            color,
-            BlendModeCompat.SRC_ATOP)
     }
 
     override fun onScrollStateChangedListener(scrollState: AppBarOffsetListener.ScrollState) {
@@ -131,11 +123,11 @@ class CharacterDetailFragment : Fragment(), AppBarOffsetListener.OnScrollStateLi
     }
 
     private fun showLoading() {
-        //TODO: Implement
+        //TODO: it could you show a dialog or spinner
     }
 
     private fun hideLoading() {
-//TODO: Implement
+        //TODO: Hide the dialog or spinner
     }
 
     companion object {

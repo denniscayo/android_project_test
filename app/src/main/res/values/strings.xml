@@ -18,4 +18,7 @@
     <string name="medium_lorem_ipsum">Quisque imperdiet nunc at massa dictum volutpat. Etiam id orci ipsum. Integer id ex dignissim</string>
     <string name="middle_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin</string>
     <string name="info_app">This Android application uses marvel Api with clean architecture principles and MVVM.\n\I do also use Hilt, Kotlin, Coroutines, Kotlin Flow, Room, Retrofit, Paging 3 library.</string>
+
+    <string name="generic_error">Generic error</string>
+    <string name="character_error">Character error</string>
 </resources>
