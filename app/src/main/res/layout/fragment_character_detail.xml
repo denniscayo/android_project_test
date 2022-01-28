@@ -97,16 +97,76 @@
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/no_results"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/spacing16"
+                android:orientation="horizontal">
+
+                <include
+                    layout="@layout/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:name="@{@string/character_comics}"
+                    app:value="@{viewModel.characterDetailModel.dataComics}" />
+
+                <include
+                    layout="@layout/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:name="@{@string/character_series}"
+                    app:value="@{viewModel.characterDetailModel.dataSeries}" />
+
+                <include
+                    layout="@layout/item_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:name="@{@string/character_events}"
+                    app:value="@{viewModel.characterDetailModel.dataEvents}" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing16"
+                android:layout_marginTop="@dimen/spacing25"
+                android:text="@string/description_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:fontFamily="sans-serif-medium" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing16"
+                android:layout_marginEnd="@dimen/spacing16"
                 android:text="@{viewModel.characterDetailModel.description}"
-                android:textSize="24sp"
-                tools:text="no_results"
-                tools:visibility="visible" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/grey_60"
+                app:fontFamily="sans-serif-light"
+                tools:text="@string/middle_lorem_ipsum" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing16"
+                android:text="@string/copyright_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:fontFamily="sans-serif-medium" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing16"
+                android:layout_marginEnd="@dimen/spacing16"
+                android:text="@{viewModel.characterDetailModel.attributionText}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/grey_60"
+                app:fontFamily="sans-serif-light"
+                tools:text="@string/middle_lorem_ipsum" />
 
         </LinearLayout>
 

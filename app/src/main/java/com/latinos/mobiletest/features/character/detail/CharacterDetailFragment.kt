@@ -87,10 +87,6 @@ class CharacterDetailFragment : Fragment(), AppBarOffsetListener.OnScrollStateLi
 
     private fun renderEvents(event: CharacterDetailViewModel.Event) {
         when (event) {
-            is CharacterDetailViewModel.Event.ErrorCharacter -> {
-                Toast.makeText(requireContext(), event.text, Toast.LENGTH_SHORT).show()
-
-            }
             is CharacterDetailViewModel.Event.CharacterError -> {
                 Toast.makeText(requireContext(), R.string.character_error, Toast.LENGTH_SHORT)
                     .show()

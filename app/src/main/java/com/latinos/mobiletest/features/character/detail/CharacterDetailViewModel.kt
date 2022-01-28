@@ -46,7 +46,6 @@ class CharacterDetailViewModel @Inject constructor(
     }
 
     sealed class Event {
-        data class ErrorCharacter(val text: Int) : Event()
         data class Error(val type: GlobalErrorType = GlobalErrorType.GENERIC_ERROR) : Event()
         data class CharacterError(val error: CharacterErrorModel) : Event()
     }

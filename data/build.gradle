@@ -60,5 +60,6 @@ dependencies {
     implementation project(":domain")
     implementation project(":database")
     implementation project(":services")
+    implementation project(":string-manager")
     implementation project(path: ':common-utils')
 }

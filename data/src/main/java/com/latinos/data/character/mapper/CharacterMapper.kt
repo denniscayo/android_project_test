@@ -14,21 +14,41 @@ fun List<ResultDTO>.toCharacterModelList() = map { it.toCharacterModel() }
 fun ResultDTO.toCharacterModel() = CharacterModel(id, name, description, thumbnail.toImage())
 
 fun CharacterEntity.toCharacterDetailModel() =
-    CharacterDetailModel(id.toString(), name, description, image)
-
-fun ResultDTO.toCharacterEntity() =
-    CharacterEntity(id.toInt(), name, description, thumbnail.toImage())
+    CharacterDetailModel(id.toString(),
+        name,
+        description,
+        image,
+        dataSeries,
+        dataComics,
+        dataEvents,
+        attributionText)
 
 fun ThumbnailDTO.toImage() = "$path.$extension"
 
-fun CharacterDTO.toCharacterDetailModel() = CharacterDetailModel(data.results[0].id,
-    data.results[0].name,
-    data.results[0].description,
-    data.results[0].thumbnail.toImage())
+fun CharacterDTO.toCharacterDetailModel(): CharacterDetailModel {
+    val character = data.results[0]
 
-fun CharacterDTO.toCharacterEntity() = CharacterEntity(data.results[0].id.toInt(),
-    data.results[0].name,
-    data.results[0].description,
-    data.results[0].thumbnail.toImage())
+    return CharacterDetailModel(character.id,
+        character.name,
+        character.description,
+        character.thumbnail.toImage(),
+        character.comics.available,
+        character.series.available,
+        character.events.available,
+        attributionText)
+}
+
+fun CharacterDTO.toCharacterEntity(): CharacterEntity {
+    val character = data.results[0]
+
+    return CharacterEntity(character.id.toInt(),
+        character.name,
+        character.description,
+        character.thumbnail.toImage(),
+        character.comics.available,
+        character.series.available,
+        character.events.available,
+        attributionText)
+}
 
 fun CharacterErrorDTO.toCharacterErrorModel() = CharacterErrorModel.Generic
