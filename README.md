@@ -10,7 +10,7 @@ This Android app has the following modules:
 
 - app: presentation layer
 - common-utils: module that contains common utilities
-- data: implement domain repositories and contains mappers
-- database: constaing ROOM database, dao and entities
+- data: implement domain repositories and has mappers for DTO/Models
+- database: ROOM database, dao and entities
 - domain: business rules
 - services: a rest module with DTO's and retrofit services
