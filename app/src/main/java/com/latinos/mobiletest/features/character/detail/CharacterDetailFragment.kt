@@ -11,6 +11,7 @@ import com.latinos.data.utils.collectInLifeCycle
 import com.latinos.mobiletest.R
 import com.latinos.mobiletest.databinding.FragmentCharacterDetailBinding
 import com.latinos.mobiletest.features.base.BaseFragment
+import com.latinos.mobiletest.features.base.setTranslucentStatusBar
 import com.latinos.mobiletest.features.base.state.StateView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,6 +39,7 @@ class CharacterDetailFragment : BaseFragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         setupToolbar(binding.toolbar, binding.collapsingToolbarLayout)
+        requireActivity().setTranslucentStatusBar(true)
         return binding.root
     }
 
