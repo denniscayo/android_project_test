@@ -10,7 +10,5 @@ import kotlinx.coroutines.flow.Flow
 interface CharacterRepository {
     fun getPaginatedCharacters(): Flow<PagingData<CharacterModel>>
 
-    //fun getCharacterById(characterId: String): Flow<Result<out CharacterDetailModel?>>
-
-    fun getCharacterByIdNew(characterId: String): Either<CharacterDetailModel, CharacterErrorModel>
+    fun getCharacterById(characterId: String): Either<CharacterDetailModel, CharacterErrorModel>
 }

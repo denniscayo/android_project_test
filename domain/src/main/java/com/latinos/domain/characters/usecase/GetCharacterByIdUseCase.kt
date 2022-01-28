@@ -16,6 +16,6 @@ class GetCharacterByIdUseCase @Inject constructor(
     FlowUseCase<String, Either<CharacterDetailModel, CharacterErrorModel>>(dispatcherProvider) {
 
     override fun prepareFlow(input: String) = flow {
-        emit(characterRepository.getCharacterByIdNew(input))
+        emit(characterRepository.getCharacterById(input))
     }
 }

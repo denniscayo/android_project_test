@@ -27,7 +27,7 @@ class CharacterRepositoryImpl @Inject constructor(
         CharacterPagingSource(charactersService)
     }.flow
 
-    override fun getCharacterByIdNew(characterId: String): Either<CharacterDetailModel, CharacterErrorModel> {
+    override fun getCharacterById(characterId: String): Either<CharacterDetailModel, CharacterErrorModel> {
         val localData = characterDao.getCharacterById(characterId.toInt())
 
         return if (localData == null) {
