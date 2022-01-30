@@ -60,6 +60,7 @@ class CharacterDetailFragment : BaseFragment() {
         when (state) {
             is StateView.Loading -> if (state.showLoading) showLoading() else hideLoading()
             is StateView.Error -> {}
+            is StateView.EmptyView -> {}
             is StateView.Success -> {}
             StateView.Idle -> {}
         }
