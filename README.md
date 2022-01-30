@@ -1,25 +1,92 @@
-# Mobile test
+# MobileTestApp
 
-# Clean-MVVM
+## Android App with Clean Architecture-MVVM
 
-Con aplicación Android se prentede mostrar la arquitectura para el desarolloro de un proyecto desde
-cero, se trata de una aplicación vista detalle usando la Api de marvel con principios de clean
-architecture y MVVM. Para el desarollo de esta se ha usado las siguientes tecnologias: Hilt, Kotlin,
-Coroutines, Kotlin Flow, Room, Retrofit, Paging 3 library
+The goal of this Android application is to show an architecture for the development of a project
+from scratch, it consists of a view/detail application using the marvel Api with principles of clean
+architecture and MVVM. The following technologies have been used for the development:
 
-# Modules
+- Hilt
+- Kotlin
+- Coroutines
+- Kotlin Flow
+- Room
+- Retrofit
+- Navigation component
+- Data binding
+- Paging 3 librarys
+- Testing with junit, mockk and turbine
 
-Para conseguir este objetivo se han creado los siguientes modulos:
+## Modules
 
-- app: contiene los fragments y activities de la aplicación
-- common-utils:
-- data:
-- database: esta capa implementa la bbdd local de nuestro telefono, por el momento solo se cachean
-  la información especifica de un usuario
-- domain:
-- services: aqui se encuentran los DTO's y las llamadas al servicio
-- string-manager: la idea es que puedan hacerce traducciones en un futuro, pues tenemos un único
-  modulo donde actualizar los textos
+The modules contained in our application are listed below:
 
-This Android app has the following modules:
+| Modules | Description |
+| ------ | ----- |
+| App | Layer presentation  |
+| Common-utils | Common classes and shared utilities with different modules  |
+| Data | Repositories implementation, mappers |
+| Database | ROOM, entities and share preferences (future) |
+| Domain | Here should be any usecase, model or repository interface |
+| Services | Remote module; contains the DTOs, the retrofit services interfaces and the remote data sources. |
+| String-manager | Contains the texts of the application, the idea is that translations can be managed from this module. |
 
+## Presentation
+
+We use data **Data binding** that it was introduced in Google I/O 2015, the Data Binding library
+helps write declarative layouts and minimize the glue code necessary to bind application logic and
+layouts.
+
+## Modules Domain Data Services
+
+The simplest way to explain the communication and function of each module is to illustrate it with a
+diagram.
+
+## Database
+
+The Room persistence library provides an abstraction layer over SQLite to allow fluent database
+access while harnessing the full power of SQLite.
+
+In our application we use this database to store the information of a specific character, the first
+time the user accesses the detail view, a call will be made to the service to obtain the information
+and then it will be stored. So that if the same character is accessed again, the local information
+will be retrieved.
+
+## CharacterRepositoryImpl
+
+This repository is important as it allows us to choose the source of data to obtain the information.
+The first time a call will be made to the service from the remote data source and the information
+will be stored in the local database, and then the information will be retrieved from the local data
+source.
+
+## ViewModel
+
+Each view model injects different use cases, and can trigger events or states based on the response
+of the these.
+
+Our viewModel uses two sealed class to modelate screen behavior
+
+- **State:** Screen state: Idle, Loading, Data, Error. States are persistent in time **StateFlow**
+- **Event:** An event is something that is not persistent in time, occurs and dissapears **Channel**
+- **StateFlow** always emits the last value **Persistent**
+- **Channel** emits only once **Volatile**
+
+## State View
+
+Loading: When the screen starts Error: After loading there is no data EmptyView: Data is available
+to be drawn Success: Error occured and persist in time
+
+## Testing
+
+For testing our app we have used the following tools:
+
+- **jUnit:** Basic test library, contains the minimum annotations and asserts necessary to run unit
+  tests
+- **Coroutines:** To test functions that are implemented in coroutines scopes.
+- **MockK:** Library to mock the classes or the results of the necessary functions for the unit test
+- **Turbine:** To simplify flow functions test
+- **Fixture:** to generate real objects with random values
+
+## View of the application
+
+**Dennis Cayo**
