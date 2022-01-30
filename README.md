@@ -31,10 +31,6 @@ The modules contained in our application are listed below:
 | Services | Remote module; contains the DTOs, the retrofit services interfaces and the remote data sources. |
 | String-manager | Contains the texts of the application, the idea is that translations can be managed from this module. |
 
-<p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/Modules.png">
-</p>
-
 ## Presentation
 
 We use data **Data binding** that it was introduced in Google I/O 2015, the Data Binding library
