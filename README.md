@@ -32,7 +32,7 @@ The modules contained in our application are listed below:
 | String-manager | Contains the texts of the application, the idea is that translations can be managed from this module. |
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Modules.png" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Modules.png">
 </p>
 
 ## Presentation
@@ -47,7 +47,7 @@ The simplest way to explain the communication and function of each module is to 
 diagram.
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Pattern.png" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Pattern.png">
 </p>
 
 ## Database
@@ -68,7 +68,7 @@ will be stored in the local database, and then the information will be retrieved
 source.
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/CharacterRepositoryImpl.png" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/CharacterRepositoryImpl.png">
 </p>
 
 ## ViewModel
@@ -85,8 +85,10 @@ Our viewModel uses two sealed class to modelate screen behavior
 
 ## State View
 
-Loading: When the screen starts Error: After loading there is no data EmptyView: Data is available
-to be drawn Success: Error occured and persist in time
+- **Loading:** When the screen starts
+- **Error:** After loading there is no data
+- **EmptyView:** There is no data to be drawn
+- **Success:** Data is available to be drawn
 
 ## Testing
 
@@ -100,7 +102,7 @@ For testing our app we have used the following tools:
 - **Fixture:** to generate real objects with random values
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Testing.png" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Testing.png">
 </p>
 
 ## View of the application
