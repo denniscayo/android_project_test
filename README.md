@@ -31,6 +31,10 @@ The modules contained in our application are listed below:
 | Services | Remote module; contains the DTOs, the retrofit services interfaces and the remote data sources. |
 | String-manager | Contains the texts of the application, the idea is that translations can be managed from this module. |
 
+<p align="center">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Modules.png" width="250">
+</p>
+
 ## Presentation
 
 We use data **Data binding** that it was introduced in Google I/O 2015, the Data Binding library
@@ -41,6 +45,10 @@ layouts.
 
 The simplest way to explain the communication and function of each module is to illustrate it with a
 diagram.
+
+<p align="center">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Pattern.png" width="250">
+</p>
 
 ## Database
 
@@ -58,6 +66,10 @@ This repository is important as it allows us to choose the source of data to obt
 The first time a call will be made to the service from the remote data source and the information
 will be stored in the local database, and then the information will be retrieved from the local data
 source.
+
+<p align="center">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/CharacterRepositoryImpl.png" width="250">
+</p>
 
 ## ViewModel
 
@@ -87,11 +99,16 @@ For testing our app we have used the following tools:
 - **Turbine:** To simplify flow functions test
 - **Fixture:** to generate real objects with random values
 
+<p align="center">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Testing.png" width="250">
+</p>
+
 ## View of the application
 
 <p align="center">
   <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaList.gif" width="250">
   <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaDetail.gif" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/CapturaAbout.png" width="250">
 </p>
 
 **Dennis Cayo**
