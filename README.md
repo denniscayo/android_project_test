@@ -89,4 +89,9 @@ For testing our app we have used the following tools:
 
 ## View of the application
 
+<p align="center">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaList.gif" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaDetail.gif" width="250">
+</p>
+
 **Dennis Cayo**
