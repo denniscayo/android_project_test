@@ -37,6 +37,8 @@ We use data **Data binding** that it was introduced in Google I/O 2015, the Data
 helps write declarative layouts and minimize the glue code necessary to bind application logic and
 layouts.
 
+The list of characters is paginated and has been created using pagging3 library. 50 elements are requested for each call to the service. When an character in the list is clicked on, first it checks if the character is already in cache, otherwise a call to the service is made and the response is cached.
+
 ## Modules Domain Data Services
 
 The simplest way to explain the communication and function of each module is to illustrate it with a
