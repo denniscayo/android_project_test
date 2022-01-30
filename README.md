@@ -32,7 +32,7 @@ The modules contained in our application are listed below:
 | String-manager | Contains the texts of the application, the idea is that translations can be managed from this module. |
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Modules.png">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/Modules.png">
 </p>
 
 ## Presentation
@@ -47,7 +47,7 @@ The simplest way to explain the communication and function of each module is to 
 diagram.
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Pattern.png">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/Pattern.png">
 </p>
 
 ## Database
@@ -68,7 +68,7 @@ will be stored in the local database, and then the information will be retrieved
 source.
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/CharacterRepositoryImpl.png">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CharacterRepositoryImpl.png">
 </p>
 
 ## ViewModel
@@ -102,7 +102,7 @@ For testing our app we have used the following tools:
 - **Fixture:** to generate real objects with random values
 
 <p align="center">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/Testing.png">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/Testing.png">
 </p>
 
 ## View of the application
@@ -110,7 +110,7 @@ For testing our app we have used the following tools:
 <p align="center">
   <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaList.gif" width="250">
   <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaDetail.gif" width="250">
-  <img src="https://github.com/denniscayo/android_project_test/blob/develop/assets/CapturaAbout.png" width="250">
+  <img src="https://github.com/denniscayo/android_project_test/blob/master/assets/CapturaAbout.png" width="250">
 </p>
 
 **Dennis Cayo**
