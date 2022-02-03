@@ -20,8 +20,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            buildConfigField "String", "URL_API", '"https://gateway.marvel.com/"'
+        }
+
         release {
-            minifyEnabled false
+            debuggable false
+            minifyEnabled true
+            buildConfigField "String", "URL_API", '"https://gateway.marvel.com/"'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
